@@ -1,5 +1,4 @@
 class ApplicationController < ActionController::Base
-  protect_from_forgery with: :exception
 
   def current_user
    User.find_by(id: session[:user_id])
@@ -10,7 +9,7 @@ class ApplicationController < ActionController::Base
   end
 
   def require_user
-   redirect '/' unless logged_in?
+   redirect_to root_path unless logged_in?
   end
 
   def find_question(comment)

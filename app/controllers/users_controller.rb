@@ -4,13 +4,13 @@ class UsersController < ApplicationController
       @user = current_user
       redirect_to @user
     else
-      # session[:login] = true
-      render 'login'
+      session[:login] = true
+      render "login"
     end
   end
 
   def signin
-    @user = User.find_by(user_params)
+    @user = User.find_by(email: user_params[:email])
 
     if @user && @user.authenticate(user_params[:password])
       session[:user_id] = @user.id
@@ -28,7 +28,6 @@ class UsersController < ApplicationController
   end
 
   def new
-    redirect_to users_login
   end
 
   def create
@@ -44,9 +43,8 @@ class UsersController < ApplicationController
 
   def show
     require_user
-    @user = User.find_by(user_params)
-    # binding.pry
-    redirect_to @user
+    @user = current_user
+    render "show"
   end
 
   private
