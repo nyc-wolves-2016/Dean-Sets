@@ -23,11 +23,24 @@ class App extends React.Component {
     }
   }
 
+  // test this!!
+  onSetCreation(cards_ary) {
+    cards_ary.forEach(card => {
+      this.prevState.deck.forEach((deck_card, idx) => {
+        if (card === deck_card) {
+          this.prevState.deck.splice(idx, 1);
+        }
+      })
+    })
+    this.setState(deck: this.prevState.deck)
+  }
+
   // test this!
   componentDidMount() {
     $.ajax({
       url: '/cards'
     }).done(function(response) {
+      debugger;
       this.setState({deck: response});
     }.bind(this))
   }
@@ -37,7 +50,7 @@ class App extends React.Component {
       <User />
 
 
-      <Game />
+      <Game data={this.state.deck}/>
       <Timer />
     )
   }
