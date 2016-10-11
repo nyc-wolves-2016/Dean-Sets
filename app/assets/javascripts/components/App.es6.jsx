@@ -20,7 +20,10 @@ class App extends React.Component {
       //   "created_at"=>Mon, 10 Oct 2016 19:56:31 UTC +00:00,
       //   "updated_at"=>Mon, 10 Oct 2016 19:56:31 UTC +00:00}
       // ]
-      deck: []
+      deck: [],
+      user: {
+        loggedIn: false
+      }
     }
   }
 
@@ -48,7 +51,7 @@ class App extends React.Component {
   render() {
     return(
       <div>
-      {/* <User /> */}
+      <Nav userData={this.state.user} onLogin={this.ufkjf} />
 
 
       {/* <Game data={this.state.deck}/> */}
