@@ -2,7 +2,7 @@ class Game extends React.Component {
 
   constructor() {
     super();
-    this.onCardClick = this.onCardClick.bind(this);
+    // this.onCardClick = this.onCardClick.bind(this);
   }
 
 
@@ -11,11 +11,14 @@ class Game extends React.Component {
     let { deck } = this.props;
 
     return(
-      <ul>
-        {deck.map((card, i) =>
-          <Card key={i} data={card} />
-        )}
-      </ul>
+      <div className="board">
+      <div className='diamond striped green'></div>
+        <ul>
+          {deck.map((card, i) =>
+            <Card key={i} data={card} />
+          )}
+        </ul>
+      </div>
     )
   }
 }

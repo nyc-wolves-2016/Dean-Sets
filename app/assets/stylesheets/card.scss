@@ -1,3 +1,100 @@
 // Place all the styles related to the Card controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.card {
+  width: 150px;
+  height: 200px;
+  outline: 1px solid black;
+  margin: 5px;
+  display: inline-block;
+  text-align: center;
+  vertical-align: center;
+  // padding-top: 50%;
+}
+
+li {
+  display: inline-block;
+  list-style: none;
+  vertical-align: top;
+}
+
+.highlight {
+  background-color: #ffff4d;
+}
+
+.red {
+  color: red;
+  border: 1px solid red;
+}
+
+
+.oval {
+    -webkit-border-radius: 65px;
+    border: 5px solid black;
+    overflow: hidden;
+    position: relative;
+    padding: 44px;
+    width: 100px;
+    margin-top: 20px;
+    margin-bottom: 50px;
+}
+.diamond {
+    border: 8px solid black;
+    overflow: hidden;
+    position: relative;
+    padding: 66px;
+    width: 0px;
+    margin-left: 50px;
+    margin-top: 3px;
+    -webkit-transform: scaleY(0.5) rotate(45deg);
+}
+.oval.striped:before {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: -50%;
+    left: -50%;
+    background-image: -webkit-linear-gradient(black 50%, transparent 50%);
+    -webkit-transform: scaleX(2.5) rotate(90deg);
+    background-size: 10px;
+    content:'';
+}
+.diamond.striped:before {
+    position: absolute;
+    top: 0;
+    right: -37.5%;
+    bottom: 0;
+    left: -37.5%;
+    background-image: -webkit-linear-gradient(black 50%, transparent 50%);
+    -webkit-transform: scaleY(1.155) skewX(-30deg) rotate(30deg);
+    background-size: 6px;
+    content:'';
+}
+.crimson {
+    border-color: crimson;
+}
+.crimson:before {
+    background-image: -webkit-linear-gradient(crimson 50%, transparent 50%) !important;
+}
+.crimson.full {
+    background-image: -webkit-linear-gradient(crimson 50%, crimson 50%) !important;
+}
+.green {
+    border-color: green;
+}
+.green:before {
+    background-image: -webkit-linear-gradient(green 50%, transparent 50%) !important;
+}
+.green.full {
+    background-image: -webkit-linear-gradient(green 50%, green 50%) !important;
+}
+.purple {
+    border-color: purple;
+}
+.purple:before {
+    background-image: -webkit-linear-gradient(purple 50%, transparent 50%) !important;
+}
+.purple.full {
+    background-image: -webkit-linear-gradient(purple 50%, purple 50%) !important;
+}
