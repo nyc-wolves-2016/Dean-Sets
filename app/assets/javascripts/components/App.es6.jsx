@@ -4,9 +4,9 @@ class App extends React.Component {
     this.onCardClick = this.onCardClick.bind(this);
     this.state = {
       deck: [],
-      user: {
-        loggedIn: false
-      }
+      // user: {
+      //   loggedIn: false
+      // }
     }
   }
 
@@ -40,6 +40,8 @@ class App extends React.Component {
     debugger;
     // this.props.deck.find(card => card === clickedCard)
   }
+
+
 
   render() {
     return(
