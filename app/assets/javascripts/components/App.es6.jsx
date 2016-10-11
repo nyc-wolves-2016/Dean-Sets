@@ -17,7 +17,7 @@ class App extends React.Component {
   }
 
   // test this!
-  componentDidMount() {
+  componentWillMount() {
     $.ajax({
       url: '/cards'
     }).done(function(response) {
@@ -33,7 +33,7 @@ class App extends React.Component {
       {/* <Nav userData={this.state.user} onLogin={this.ufkjf} /> */}
 
 
-      {/* <Game data={this.state.deck}/> */}
+      <Game deck={this.state.deck}/>
       {/* <Timer /> */}
       </div>
     )
