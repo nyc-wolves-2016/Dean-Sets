@@ -1,4 +1,7 @@
 class Card extends React.Component {
+
+  
+
   render(){
     let { color, shape, shading, number } = this.props.data;
     return(

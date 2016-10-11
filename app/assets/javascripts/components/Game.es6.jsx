@@ -1,4 +1,12 @@
 class Game extends React.Component {
+
+  constructor() {
+    super();
+    this.onCardClick = this.onCardClick.bind(this);
+  }
+
+
+
   render() {
     let { deck } = this.props;
 
