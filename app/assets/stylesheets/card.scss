@@ -1,3 +1,149 @@
 // Place all the styles related to the Card controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.card {
+  width: 150px;
+  height: 200px;
+  outline: 1px solid black;
+  margin: 5px;
+  display: inline-block;
+  text-align: center;
+  vertical-align: center;
+}
+
+.cardfront {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+li {
+  display: inline-block;
+  list-style: none;
+  vertical-align: top;
+}
+
+.highlight {
+  background-color: #ffff4d;
+}
+
+.pill {
+    -webkit-border-radius: 65px;
+    border: 5px solid black;
+    overflow: hidden;
+    position: relative;
+    padding: 10%;
+    width: 30%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.circle {
+    -webkit-border-radius: 100%;
+    border: 4px solid black;
+    overflow: hidden;
+    position: relative;
+    padding: 10%;
+    width: 1em;
+    height: 1em;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.diamond {
+    border: 8px solid black;
+    overflow: hidden;
+    position: relative;
+    padding: 15%;
+    width: 0px;
+    margin-left: 30%;
+    -webkit-transform: scaleY(0.5) rotate(45deg);
+}
+.pill.lined:before {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: -50%;
+    left: -50%;
+    background-image: -webkit-linear-gradient(black 50%, transparent 50%);
+    -webkit-transform: scaleX(2.5) rotate(90deg);
+    background-size: 10px;
+    content:'';
+}
+
+.circle.lined:before {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: -50%;
+    left: -50%;
+    background-image: -webkit-linear-gradient(black 50%, transparent 50%);
+    -webkit-transform: scaleX(1.155) rotate(90deg);
+    background-size: 10px;
+    content:'';
+}
+
+.diamond.lined:before {
+    position: absolute;
+    top: 0;
+    right: -37.5%;
+    bottom: 0;
+    left: -37.5%;
+    background-image: -webkit-linear-gradient(black 50%, transparent 50%);
+    -webkit-transform: scaleY(1.155) skewX(-30deg) rotate(30deg);
+    background-size: 6px;
+    content:'';
+}
+
+.red {
+    border-color: red;
+}
+
+.red:before {
+    background-image: -webkit-linear-gradient(red 50%, transparent 50%) !important;
+}
+
+.red.solid {
+    background-image: -webkit-linear-gradient(red 50%, red 50%) !important;
+}
+
+.red.empty {
+    background-image: -webkit-linear-gradient(transparent 50%, transparent 50%) !important;
+}
+
+.green {
+    border-color: green;
+}
+
+.green:before {
+    background-image: -webkit-linear-gradient(green 50%, transparent 50%) !important;
+}
+
+.green.solid {
+    background-image: -webkit-linear-gradient(green 50%, green 50%) !important;
+}
+
+.green.empty {
+    background-image: -webkit-linear-gradient(transparent 50%, transparent 50%) !important;
+}
+
+.purple {
+    border-color: purple;
+}
+
+.purple:before {
+    background-image: -webkit-linear-gradient(purple 50%, transparent 50%) !important;
+}
+
+.purple.solid {
+    background-image: -webkit-linear-gradient(purple 50%, purple 50%) !important;
+}
+
+.purple.empty {
+    background-image: -webkit-linear-gradient(transparent 50%, transparent 50%) !important;
+}
