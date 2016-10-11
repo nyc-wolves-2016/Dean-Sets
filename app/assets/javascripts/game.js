@@ -264,9 +264,10 @@ function addNineCards(deck) {
 function checkBoardAndAddCards(possibleCardCombos, deck) {
   if (setsOnBoard(possibleCardCombos) == false) {
     addThreeCards(deck)
+    return true;
   }
   else {
-    return "There's a set on the board! Keep looking!"
+    return "There's a set on the board! Keep looking!";
   }
 }
 

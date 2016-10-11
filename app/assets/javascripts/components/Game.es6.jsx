@@ -5,9 +5,22 @@ class Game extends React.Component {
     this.onButtonClick = this.onButtonClick.bind(this);
   }
 
-  // change card's status
   onButtonClick() {
-    // hit up ya boi controller for possible combos
+    var onBoardCards = this.props.deck.filter(card => card.status == "selected" || card.status == "onBoard");
+    var inDeckCards = this.props.deck.filter(card => card.status == "pending");
+
+    $.ajax({
+      url: '/games/card_combos',
+      data: {cards: {cards_ary: onBoardCards}}
+    }).done(function(response) {
+      var isAdded = checkBoardAndAddCards(response, inDeckCards);
+      if (isAdded==true) {
+        this.forceUpdate();
+      } else {
+        alert('Keep looking!');
+      }
+      debugger;
+    }.bind(this));
 
   }
 
@@ -33,7 +46,7 @@ class Game extends React.Component {
           )}
         </ul>
 
-        <input type="button" name="ImaButton" onClick={this.onButtonClick} />
+        <input type="button" value="deyAintNoSets" onClick={this.onButtonClick} />
       </div>
     )
   }
