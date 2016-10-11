@@ -21,9 +21,9 @@ class App extends React.Component {
       //   "updated_at"=>Mon, 10 Oct 2016 19:56:31 UTC +00:00}
       // ]
       deck: [],
-      user: {
-        loggedIn: false
-      }
+      // user: {
+      //   loggedIn: false
+      // }
     }
   }
 
@@ -48,10 +48,12 @@ class App extends React.Component {
     }.bind(this))
   }
 
+
+
   render() {
     return(
       <div>
-      <Nav userData={this.state.user} onLogin={this.ufkjf} />
+        <Nav />
 
 
       {/* <Game data={this.state.deck}/> */}
