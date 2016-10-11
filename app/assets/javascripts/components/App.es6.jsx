@@ -4,9 +4,9 @@ class App extends React.Component {
     this.onCardClick = this.onCardClick.bind(this);
     this.state = {
       deck: [],
-      user: {
-        loggedIn: false
-      }
+      // user: {
+      //   loggedIn: false
+      // }
     }
   }
 
@@ -32,6 +32,8 @@ class App extends React.Component {
     newDeck.push(cardToUpdate);
     this.setState({deck: newDeck});
   }
+
+
 
   render() {
     return(

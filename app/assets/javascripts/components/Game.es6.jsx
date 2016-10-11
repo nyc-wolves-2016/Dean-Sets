@@ -38,7 +38,7 @@ class Game extends React.Component {
     var cardsToDisplay = deck.filter(card => card.status == "selected" || card.status == "onBoard");
 
     return(
-      <div>
+      <div className="board">
         <ul>
           {cardsToDisplay.map((card, i) =>
             <Card key={i} data={card} uponClick={this.props.uponClick}/>
@@ -47,6 +47,7 @@ class Game extends React.Component {
 
         <input type="button" value="deyAintNoSets" onClick={this.onButtonClick} />
       </div>
+
     )
   }
 }
