@@ -1,5 +1,158 @@
 // Place all the behaviors and hooks related to the matching controller here.
 // All this logic will automatically be available in application.js.
+// var boardCards = []
+// var set = [
+//       [  {"id": 1,
+//         "shape": "triangle",
+//         "color": "blue",
+//         "number": 1,
+//         "shading": "solid",
+//         "status": "pending"},
+//
+//        {"id": 2,
+//         "shape": "square",
+//         "color": "red",
+//         "number": 2,
+//         "shading": "striped",
+//         "status": "pending"},
+//
+//         {"id": 3,
+//         "shape": "circle",
+//         "color": "green",
+//         "number": 3,
+//         "shading": "blank",
+//         "status": "pending"}],
+//         [  {"id": 1,
+//           "shape": "triangle",
+//           "color": "blue",
+//           "number": 1,
+//           "shading": "solid",
+//           "status": "pending"},
+//
+//          {"id": 2,
+//           "shape": "square",
+//           "color": "red",
+//           "number": 2,
+//           "shading": "striped",
+//           "status": "pending"},
+//
+//           {"id": 3,
+//           "shape": "circle",
+//           "color": "green",
+//           "number": 3,
+//           "shading": "blank",
+//           "status": "pending"}],
+//           [  {"id": 1,
+//             "shape": "triangle",
+//             "color": "blue",
+//             "number": 1,
+//             "shading": "solid",
+//             "status": "pending"},
+//
+//            {"id": 2,
+//             "shape": "square",
+//             "color": "red",
+//             "number": 2,
+//             "shading": "striped",
+//             "status": "pending"},
+//
+//             {"id": 3,
+//             "shape": "circle",
+//             "color": "green",
+//             "number": 3,
+//             "shading": "blank",
+//             "status": "pending"}]
+//         ]
+// var deck = [
+//         {"id": 1,
+//         "shape": "triangle",
+//         "color": "blue",
+//         "number": 2,
+//         "shading": "solid",
+//         "status": "pending"},
+//
+//        {"id": 2,
+//         "shape": "square",
+//         "color": "red",
+//         "number": 2,
+//         "shading": "striped",
+//         "status": "pending"},
+//
+//         {"id": 3,
+//         "shape": "circle",
+//         "color": "green",
+//         "number": 3,
+//         "shading": "blank",
+//         "status": "pending"}
+//         ]
+// var noSets = [
+//     [
+//           {"id": 1,
+//           "shape": "triangle",
+//           "color": "blue",
+//           "number": 1,
+//           "shading": "solid",
+//           "status": "pending"},
+//
+//          {"id": 2,
+//           "shape": "square",
+//           "color": "red",
+//           "number": 3,
+//           "shading": "striped",
+//           "status": "pending"},
+//
+//           {"id": 3,
+//           "shape": "circle",
+//           "color": "green",
+//           "number": 3,
+//           "shading": "blank",
+//           "status": "pending"}
+//         ],
+//         [
+//           {"id": 1,
+//           "shape": "triangle",
+//           "color": "blue",
+//           "number": 1,
+//           "shading": "striped",
+//           "status": "pending"},
+//
+//          {"id": 2,
+//           "shape": "square",
+//           "color": "red",
+//           "number": 2,
+//           "shading": "striped",
+//           "status": "pending"},
+//
+//           {"id": 3,
+//           "shape": "circle",
+//           "color": "green",
+//           "number": 3,
+//           "shading": "blank",
+//           "status": "pending"}
+//         ],
+//         [
+//           {"id": 1,
+//           "shape": "triangle",
+//           "color": "blue",
+//           "number": 1,
+//           "shading": "solid",
+//           "status": "pending"},
+//
+//          {"id": 2,
+//           "shape": "triangle",
+//           "color": "red",
+//           "number": 2,
+//           "shading": "striped",
+//           "status": "pending"},
+//
+//           {"id": 3,
+//           "shape": "circle",
+//           "color": "green",
+//           "number": 3,
+//           "shading": "blank",
+//           "status": "pending"}
+//         ]
+// ]
 function shapeSet(cards_ary) {
   var card1 = cards_ary[0]
   var card2 = cards_ary[1]
@@ -84,8 +237,26 @@ function setsOnBoard(possibleCardCombos) {
   }
 }
 
-function gameOver(boardCardsAry) {
-  if (setsOnBoard(boardCardsAry) == false && deck.length === 0) {
+function addCards() {
+  if (deck.length > 0) {
+    boardCards.push.apply(boardCards, deck.slice(0, 3));
+  }
+  else {
+    return false
+  }
+}
+
+function checkBoardAndAddCards(possibleCardCombos) {
+  if (setsOnBoard(possibleCardCombos) == false) {
+    addCards()
+  }
+  else {
+    return "There's a set on the board! Keep looking!"
+  }
+}
+
+function gameOver(possibleCardCombos) {
+  if (setsOnBoard(possibleCardCombos) == false && deck.length === 0) {
     return true;
   }
   else {
