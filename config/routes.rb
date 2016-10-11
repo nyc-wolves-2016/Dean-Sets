@@ -7,6 +7,7 @@ Rails.application.routes.draw do
 
   resources :users, only: [:new, :create, :show]
 
+  get '/games/card_combos', to: 'games#card_combos'
   resources :games, only: [:create, :update]
 
   get '/cards', to: 'cards#index'
