@@ -19,7 +19,7 @@ class App extends React.Component {
       //   "status"=>"pending",
       //   "created_at"=>Mon, 10 Oct 2016 19:56:31 UTC +00:00,
       //   "updated_at"=>Mon, 10 Oct 2016 19:56:31 UTC +00:00}
-      // ]
+      ]
       deck: []
     }
   }
