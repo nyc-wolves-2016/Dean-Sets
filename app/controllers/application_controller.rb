@@ -12,14 +12,6 @@ class ApplicationController < ActionController::Base
    redirect_to root_path unless logged_in?
   end
 
-  def find_question(comment)
-   if comment.commentable_type == "Question"
-     Question.find_by(id: comment.commentable_id).id
-   else
-     Answer.find_by(id: comment.commentable_id).question_id
-   end
-  end
-
   def user_logged_in?(user_id) # Ensures a user who is not logged in can view home page
    if logged_in?
      true if current_user.id == user_id

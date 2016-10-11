@@ -8,3 +8,18 @@
 
 a = User.create(username: "dad", password: "password", email: "dad@mom.com")
 Game.create(user: a)
+
+shapes = ["pill", "circle", "diamond"]
+colors = ["green", "purple", "red"]
+numbers = [1 ,2, 3]
+shadings = ["solid", "lined", "empty"]
+
+shapes.each do |shape|
+  colors.each do |color|
+    numbers.each do |number|
+      shadings.each do |shading|
+        Card.create!(shading: shading, color: color, number: number, shape: shape)
+      end
+    end
+  end
+end

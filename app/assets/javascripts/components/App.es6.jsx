@@ -1,25 +1,8 @@
 class App extends React.Component {
   constructor() {
     super();
+    this.onCardClick = this.onCardClick.bind(this);
     this.state = {
-      // deck: [
-      //   {"id"=>1,
-      //   "shape"=>"square",
-      //   "color"=>"blue",
-      //   "number"=>2,
-      //   "shading"=>"solid",
-      //   "status"=>"pending",
-      //   "created_at"=>Mon, 10 Oct 2016 19:55:59 UTC +00:00,
-      //   "updated_at"=>Mon, 10 Oct 2016 19:55:59 UTC +00:00},
-      //  {"id"=>2,
-      //   "shape"=>"square",
-      //   "color"=>"blue",
-      //   "number"=>2,
-      //   "shading"=>"striped",
-      //   "status"=>"pending",
-      //   "created_at"=>Mon, 10 Oct 2016 19:56:31 UTC +00:00,
-      //   "updated_at"=>Mon, 10 Oct 2016 19:56:31 UTC +00:00}
-      // ]
       deck: [],
       // user: {
       //   loggedIn: false
@@ -28,24 +11,34 @@ class App extends React.Component {
   }
 
   // test this!!
-  // onSetCreation(cards_ary) {
-  //   cards_ary.forEach(card => {
-  //     this.prevState.deck.forEach((deck_card, idx) => {
-  //       if (card === deck_card) {
-  //         this.prevState.deck.splice(idx, 1);
-  //       }
-  //     })
-  //   })
-  //   this.setState(deck: this.prevState.deck)
-  // }
+  onSetCreation(cards_ary) {
+    new_deck = this.state.deck.filter(deck_card =>  !cards_ary.includes(deck_card));
+
+    this.setState({deck: new_deck})
+  }
 
   // test this!
-  componentDidMount() {
+  componentWillMount() {
     $.ajax({
       url: '/cards'
     }).done(function(response) {
       this.setState({deck: response});
-    }.bind(this))
+
+      // console.log("first", this.state);
+    }.bind(this));
+  }
+
+  // var newDeck = this.state.deck.filter(function(card) { return card.id != clickedCard.props.data.id; });
+
+  onCardClick(clickedCard, newStatus) {
+    var newDeck = this.state.deck.filter(card => card.id != clickedCard.props.data.id );
+    var cardToUpdate = this.state.deck.find(card => card.id == clickedCard.props.data.id );
+
+    cardToUpdate.status = newStatus;
+    newDeck.push(cardToUpdate);
+    this.setState({deck: newDeck});
+    debugger;
+    // this.props.deck.find(card => card === clickedCard)
   }
 
 
@@ -53,10 +46,10 @@ class App extends React.Component {
   render() {
     return(
       <div>
-        <Nav />
+      {/* <Nav userData={this.state.user} onLogin={this.ufkjf} /> */}
 
 
-      {/* <Game data={this.state.deck}/> */}
+      <Game deck={this.state.deck} uponClick={this.onCardClick}/>
       {/* <Timer /> */}
       </div>
     )
