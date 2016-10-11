@@ -6,21 +6,8 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-# a = User.create(username: "dad", password: "password", email: "dad@mom.com")
-# Game.create(user: a)
-
-
-# shape: "square",
-# color: "blue",
-# number: 2,
-# shading: "solid",
-# status: "pending",
-#
-# shape: "square",
-# color: "blue",
-# number: 2,
-# shading: "striped",
-# status: "pending",
+a = User.create(username: "dad", password: "password", email: "dad@mom.com")
+Game.create(user: a)
 
 shapes = ["pill", "squiggle", "diamond"]
 colors = ["green", "purple", "red"]
