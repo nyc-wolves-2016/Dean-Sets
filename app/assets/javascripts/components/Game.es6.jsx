@@ -19,7 +19,6 @@ class Game extends React.Component {
       } else {
         alert('Keep looking!');
       }
-      debugger;
     }.bind(this));
 
   }
