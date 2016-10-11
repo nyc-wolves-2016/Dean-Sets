@@ -14,6 +14,10 @@ class GamesController < ApplicationController
     render json: @game
   end
 
+  def card_combos(cards_ary)
+    cards_ary.combination(3).to_a
+  end
+
   private
   def game_params
     params.require(:game).permit(:sets, :invalid_sets)
