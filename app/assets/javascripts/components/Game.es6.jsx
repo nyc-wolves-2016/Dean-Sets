@@ -3,11 +3,11 @@ class Game extends React.Component {
     let { deck } = this.props;
 
     return(
-      <ol>
+      <ul>
         {deck.map((card, i) =>
           <Card key={i} data={card} />
         )}
-      </ol>
+      </ul>
     )
   }
 }
