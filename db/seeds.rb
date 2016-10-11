@@ -8,3 +8,16 @@
 
 a = User.create(username: "dad", password: "password", email: "dad@mom.com")
 Game.create(user: a)
+
+
+# shape: "square",
+# color: "blue",
+# number: 2,
+# shading: "solid",
+# status: "pending",
+#
+# shape: "square",
+# color: "blue",
+# number: 2,
+# shading: "striped",
+# status: "pending",

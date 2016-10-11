@@ -28,16 +28,11 @@ class App extends React.Component {
   }
 
   // test this!!
-  // onSetCreation(cards_ary) {
-  //   cards_ary.forEach(card => {
-  //     this.prevState.deck.forEach((deck_card, idx) => {
-  //       if (card === deck_card) {
-  //         this.prevState.deck.splice(idx, 1);
-  //       }
-  //     })
-  //   })
-  //   this.setState(deck: this.prevState.deck)
-  // }
+  onSetCreation(cards_ary) {
+    new_deck = this.state.deck.filter(deck_card =>  !cards_ary.includes(deck_card));
+
+    this.setState({deck: new_deck})
+  }
 
   // test this!
   componentDidMount() {
@@ -45,13 +40,15 @@ class App extends React.Component {
       url: '/cards'
     }).done(function(response) {
       this.setState({deck: response});
-    }.bind(this))
+
+      console.log("first", this.state);
+    }.bind(this));
   }
 
   render() {
     return(
       <div>
-      <Nav userData={this.state.user} onLogin={this.ufkjf} />
+      {/* <Nav userData={this.state.user} onLogin={this.ufkjf} /> */}
 
 
       {/* <Game data={this.state.deck}/> */}
