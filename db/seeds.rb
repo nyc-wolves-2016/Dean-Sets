@@ -9,7 +9,7 @@
 a = User.create(username: "dad", password: "password", email: "dad@mom.com")
 Game.create(user: a)
 
-shapes = ["pill", "squiggle", "diamond"]
+shapes = ["pill", "circle", "diamond"]
 colors = ["green", "purple", "red"]
 numbers = [1 ,2, 3]
 shadings = ["solid", "lined", "empty"]

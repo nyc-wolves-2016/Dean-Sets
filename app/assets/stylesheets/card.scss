@@ -28,7 +28,7 @@ li {
   background-color: #ffff4d;
 }
 
-.oval {
+.pill {
     -webkit-border-radius: 65px;
     border: 5px solid black;
     overflow: hidden;
@@ -62,11 +62,9 @@ li {
     padding: 15%;
     width: 0px;
     margin-left: 30%;
-    // margin-top: 0px;
-    // margin-bottom: 5px;
     -webkit-transform: scaleY(0.5) rotate(45deg);
 }
-.oval.striped:before {
+.pill.lined:before {
     position: absolute;
     top: 0;
     bottom: 0;
@@ -78,7 +76,7 @@ li {
     content:'';
 }
 
-.circle.striped:before {
+.circle.lined:before {
     position: absolute;
     top: 0;
     bottom: 0;
@@ -90,7 +88,7 @@ li {
     content:'';
 }
 
-.diamond.striped:before {
+.diamond.lined:before {
     position: absolute;
     top: 0;
     right: -37.5%;
@@ -110,8 +108,12 @@ li {
     background-image: -webkit-linear-gradient(red 50%, transparent 50%) !important;
 }
 
-.red.full {
+.red.solid {
     background-image: -webkit-linear-gradient(red 50%, red 50%) !important;
+}
+
+.red.empty {
+    background-image: -webkit-linear-gradient(transparent 50%, transparent 50%) !important;
 }
 
 .green {
@@ -122,8 +124,12 @@ li {
     background-image: -webkit-linear-gradient(green 50%, transparent 50%) !important;
 }
 
-.green.full {
+.green.solid {
     background-image: -webkit-linear-gradient(green 50%, green 50%) !important;
+}
+
+.green.empty {
+    background-image: -webkit-linear-gradient(transparent 50%, transparent 50%) !important;
 }
 
 .purple {
@@ -134,6 +140,10 @@ li {
     background-image: -webkit-linear-gradient(purple 50%, transparent 50%) !important;
 }
 
-.purple.full {
+.purple.solid {
     background-image: -webkit-linear-gradient(purple 50%, purple 50%) !important;
+}
+
+.purple.empty {
+    background-image: -webkit-linear-gradient(transparent 50%, transparent 50%) !important;
 }
