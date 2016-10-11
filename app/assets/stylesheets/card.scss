@@ -23,10 +23,10 @@ li {
   background-color: #ffff4d;
 }
 
-.red {
-  color: red;
-  border: 1px solid red;
-}
+// .red {
+//   color: red;
+//   border: 1px solid red;
+// }
 
 
 .oval {
@@ -39,6 +39,19 @@ li {
     margin-top: 20px;
     margin-bottom: 50px;
 }
+
+.oval {
+    -webkit-border-radius: 100%;
+    border: 5px solid black;
+    overflow: hidden;
+    position: relative;
+    padding: 44px;
+    width: 1em;
+    height: 1em;
+    margin-top: 20px;
+    margin-bottom: 50px;
+}
+
 .diamond {
     border: 8px solid black;
     overflow: hidden;
@@ -71,14 +84,14 @@ li {
     background-size: 6px;
     content:'';
 }
-.crimson {
-    border-color: crimson;
+.red {
+    border-color: red;
 }
-.crimson:before {
-    background-image: -webkit-linear-gradient(crimson 50%, transparent 50%) !important;
+.red:before {
+    background-image: -webkit-linear-gradient(red 50%, transparent 50%) !important;
 }
-.crimson.full {
-    background-image: -webkit-linear-gradient(crimson 50%, crimson 50%) !important;
+.red.full {
+    background-image: -webkit-linear-gradient(red 50%, red 50%) !important;
 }
 .green {
     border-color: green;
