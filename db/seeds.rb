@@ -6,8 +6,8 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-a = User.create(username: "dad", password: "password", email: "dad@mom.com")
-Game.create(user: a)
+# a = User.create(username: "dad", password: "password", email: "dad@mom.com")
+# Game.create(user: a)
 
 
 # shape: "square",
@@ -21,3 +21,18 @@ Game.create(user: a)
 # number: 2,
 # shading: "striped",
 # status: "pending",
+
+shapes = ["pill", "squiggle", "diamond"]
+colors = ["green", "purple", "red"]
+numbers = [1 ,2, 3]
+shadings = ["solid", "lined", "empty"]
+
+shapes.each do |shape|
+  colors.each do |color|
+    numbers.each do |number|
+      shadings.each do |shading|
+        Card.create!(shading: shading, color: color, number: number, shape: shape)
+      end
+    end
+  end
+end

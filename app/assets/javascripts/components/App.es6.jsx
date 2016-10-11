@@ -33,7 +33,7 @@ class App extends React.Component {
       {/* <Nav userData={this.state.user} onLogin={this.ufkjf} /> */}
 
 
-      <Game data={this.state.deck}/>
+      {/* <Game data={this.state.deck}/> */}
       {/* <Timer /> */}
       </div>
     )

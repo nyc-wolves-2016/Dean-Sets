@@ -69,11 +69,11 @@ function validSet(cards_ary) {
   }
 }
 
-function setsOnBoard(boardCardsAry) {
+function setsOnBoard(possibleCardCombos) {
   sets = []
-  for (var i = 0; i < boardCardsAry.length; i++) {
-    if (validSet(boardCardsAry[i])) {
-      sets.push(boardCardsAry[i]);
+  for (var i = 0; i < possibleCardCombos.length; i++) {
+    if (validSet(possibleCardCombos[i])) {
+      sets.push(possibleCardCombos[i]);
     }
   }
   if (sets.length > 0) {
