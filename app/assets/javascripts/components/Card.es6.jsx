@@ -6,8 +6,7 @@ class Card extends React.Component {
     let { color, shape, shading, number } = this.props.data;
     return(
       <li>
-
-        <div className="card">{number} {shading} {color} {shape}</div>
+        <div className="card"><div className='circle striped red'></div><div className='oval striped red'></div></div>
       </li>
     )
   }

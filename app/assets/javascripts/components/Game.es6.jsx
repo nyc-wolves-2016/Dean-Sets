@@ -12,7 +12,7 @@ class Game extends React.Component {
 
     return(
       <div className="board">
-      <div className='oval striped red'></div>
+      <div className='circle red'></div>
         <ul>
           {deck.map((card, i) =>
             <Card key={i} data={card} />

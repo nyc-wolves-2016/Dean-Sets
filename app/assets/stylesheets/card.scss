@@ -40,7 +40,7 @@ li {
     margin-bottom: 50px;
 }
 
-.oval {
+.circle {
     -webkit-border-radius: 100%;
     border: 5px solid black;
     overflow: hidden;
@@ -73,6 +73,19 @@ li {
     background-size: 10px;
     content:'';
 }
+
+.circle.striped:before {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: -50%;
+    left: -50%;
+    background-image: -webkit-linear-gradient(black 50%, transparent 50%);
+    -webkit-transform: scaleX(1.155) rotate(90deg);
+    background-size: 10px;
+    content:'';
+}
+
 .diamond.striped:before {
     position: absolute;
     top: 0;
