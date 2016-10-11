@@ -2,20 +2,52 @@ class Game extends React.Component {
 
   constructor() {
     super();
-    // this.onCardClick = this.onCardClick.bind(this);
+    this.onButtonClick = this.onButtonClick.bind(this);
   }
-  // change card's status
+
+  onButtonClick() {
+    var onBoardCards = this.props.deck.filter(card => card.status == "selected" || card.status == "onBoard");
+    var inDeckCards = this.props.deck.filter(card => card.status == "pending");
+
+    $.ajax({
+      url: '/games/card_combos',
+      data: {cards: {cards_ary: onBoardCards}}
+    }).done(function(response) {
+      var isAdded = checkBoardAndAddCards(response, inDeckCards);
+      if (isAdded==true) {
+        this.forceUpdate();
+      } else {
+        alert('Keep looking!');
+      }
+    }.bind(this));
+
+  }
 
   render() {
     let { deck } = this.props;
+
+    var onBoardCards = deck.filter(card => card.status == "selected" || card.status == "onBoard");
+    var inDeckCards = deck.filter(card => card.status == "pending");
+
+    if (onBoardCards.length == 0) {
+      addNineCards(inDeckCards);
+    } else if (onBoardCards.length < 9) {
+      addThreeCards(inDeckCards);
+    }
+
+    var cardsToDisplay = deck.filter(card => card.status == "selected" || card.status == "onBoard");
+
     return(
       <div className="board">
         <ul>
-          {deck.map((card, i) =>
+          {cardsToDisplay.map((card, i) =>
             <Card key={i} data={card} uponClick={this.props.uponClick}/>
           )}
         </ul>
+
+        <input type="button" value="deyAintNoSets" onClick={this.onButtonClick} />
       </div>
+
     )
   }
 }

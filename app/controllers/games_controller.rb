@@ -15,7 +15,9 @@ class GamesController < ApplicationController
   end
 
   def card_combos
-    cards_params[:cards_ary].combination(3).to_a
+    # binding.pry
+    card_combos = params[:cards][:cards_ary].values.combination(3).to_a.as_json
+    render json: card_combos
   end
 
   private

@@ -15,6 +15,7 @@ class Card extends React.Component {
   render(){
     let { color, shape, shading, number, status } = this.props.data;
     return(
+      
       <li onClick={this.changeStatus}>
         <div className="card">
           <div className="cardfront">

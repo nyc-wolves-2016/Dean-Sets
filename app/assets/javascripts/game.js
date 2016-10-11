@@ -237,21 +237,37 @@ function setsOnBoard(possibleCardCombos) {
   }
 }
 
-function addCards() {
+function addThreeCards(deck) {
   if (deck.length > 0) {
-    boardCards.push.apply(boardCards, deck.slice(0, 3));
+    var drawnCards = deck.slice(0, 3)
+    for (var i = 0; i < drawnCards.length; i++) {
+      drawnCards[i].status = "onBoard"
+    }
   }
   else {
     return false
   }
 }
 
-function checkBoardAndAddCards(possibleCardCombos) {
-  if (setsOnBoard(possibleCardCombos) == false) {
-    addCards()
+function addNineCards(deck) {
+  if (deck.length > 0) {
+    var drawnCards = deck.slice(0, 9)
+    for (var i = 0; i < drawnCards.length; i++) {
+      drawnCards[i].status = "onBoard"
+    }
   }
   else {
-    return "There's a set on the board! Keep looking!"
+    return false
+  }
+}
+
+function checkBoardAndAddCards(possibleCardCombos, deck) {
+  if (setsOnBoard(possibleCardCombos) == false) {
+    addThreeCards(deck)
+    return true;
+  }
+  else {
+    return "There's a set on the board! Keep looking!";
   }
 }
 
