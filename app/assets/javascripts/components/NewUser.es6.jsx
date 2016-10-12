@@ -23,26 +23,26 @@ class NewUser extends React.Component {
 
   render() {
     return (
-      <form ref="registerForm" onSubmit={this.registerUser}>
+      <div className="register-div">
+        <h3 className="register-header">REGISTER</h3>
+        <form ref="registerForm" onSubmit={this.registerUser}>
+          <ul className="register-ul">
+            <li className="register-li"><div className="form-group">
+              <input ref="usernameBox" type="text" placeholder="username"/>
+            </div></li>
 
-        <div className="form-group">
-          <label htmlFor="username">username:</label>
-          <input ref="usernameBox" type="text"/>
-        </div>
+            <li className="register-li"><div className="form-group">
+              <input ref="emailBox" type="text" placeholder="email"/>
+            </div></li>
 
-        <div className="form-group">
-          <label htmlFor="email">email:</label>
-          <input ref="emailBox" type="text"/>
-        </div>
+            <li className="register-li"><div className="form-group">
+              <input ref="passwordBox" type="password" placeholder="password"/>
+            </div></li>
 
-        <div className="form-group">
-          <label htmlFor="password">password:</label>
-          <input ref="passwordBox" type="text"/>
-        </div>
-
-        <input type="submit" value="register"/>
-
-      </form>
+            <li className="register-li register-button"><input type="submit" value="register"/></li>
+          </ul>
+        </form>
+      </div>
     )
   }
 }
