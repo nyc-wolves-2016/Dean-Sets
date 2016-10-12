@@ -13,3 +13,9 @@
  *= require_tree .
  *= require_self
  */
+
+.instructions {
+  width: 70%;
+  margin-left: 10px;
+}
+
