@@ -22,21 +22,23 @@ class Login extends React.Component {
 
   render() {
     return (
-      <form ref="loginForm" onSubmit={this.loginUser}>
+      <div className="login-div">
+        <h3 className="login-header">LOGIN</h3>
+        <form ref="loginForm" onSubmit={this.loginUser}>
+          <ul className="login-ul">
 
-        <div className="form-group">
-          <label htmlFor="email">email:</label>
-          <input ref="emailBox" type="text"/>
-        </div>
+            <li className="login-li"><div className="form-group">
+              <input ref="emailBox" type="text" placeholder="email"/>
+            </div></li>
 
-        <div className="form-group">
-          <label htmlFor="password">password:</label>
-          <input ref="passwordBox" type="text"/>
-        </div>
+            <li className="login-li"><div className="form-group">
+              <input ref="passwordBox" type="password" placeholder="password"/>
+            </div></li>
 
-        <input type="submit" value="login"/>
-
-      </form>
+            <li className="login-li login-button"><input type="submit" value="login"/></li>
+          </ul>
+        </form>
+      </div>
     )
   }
 }

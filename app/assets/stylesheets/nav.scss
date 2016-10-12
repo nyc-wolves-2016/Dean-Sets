@@ -1,0 +1,124 @@
+nav {
+  margin-bottom: 10px;
+}
+
+
+.loggedin-nav-ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+}
+
+.loggedin-nav-li {
+    float: left;
+}
+
+.loggedin-nav-li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+.loggedin-nav-li a:hover {
+    background-color: #111;
+    color: white;
+
+}
+
+
+
+
+.loggedout-nav-ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+}
+
+.loggedout-nav-li {
+    float: left;
+}
+
+.loggedout-nav-li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+.loggedout-nav-li a:hover {
+    background-color: #111;
+    color: white;
+}
+
+
+
+.register-div {
+  margin-left: 20px;
+  margin-bottom: 20px;
+}
+
+.register-ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    width: 50px;
+    background-color: #333;
+}
+
+.register-li {
+    display: block;
+    color: white;
+    text-decoration: none;
+}
+
+.register-li input {
+  color: black;
+}
+
+.register-button {
+  color: black;
+}
+
+.register-header {
+  color: white;
+}
+
+
+
+
+.login-div {
+  margin-left: 200px;
+}
+
+.login-ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    width: 50px;
+    background-color: #333;
+}
+
+.login-li {
+    display: block;
+    color: white;
+    text-decoration: none;
+}
+
+.login-button {
+  color: black;
+}
+
+.login-header {
+  color: white;
+}
+
+.login-li input {
+  color: black;
+}
