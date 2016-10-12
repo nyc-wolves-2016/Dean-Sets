@@ -292,3 +292,12 @@ function changeCardStatus(cards_ary) {
     }
   }
 }
+
+function hasSelectedSet(deck) {
+  var selectedCards = deck.filter(card => card.status == "selected");
+  if (selectedCards.length == 3) {
+    return selectedCards;
+  } else {
+    return false;
+  }
+}
