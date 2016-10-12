@@ -5,8 +5,23 @@
 .board {
   margin: auto;
   width: 550px;
-  border: 1px solid red;
   padding: 10px;
 }
 
+.noSets {
+  display: block;
+  margin: auto;
+  padding: 10px 40px;
+  border-radius: 10px;
+  font-size: 20px;
+  color: #FFF;
+  text-decoration: none;
+}
 
+
+.red-button
+{
+  background-color: #e60000;
+  border-bottom: 5px solid #BD3E31;
+  text-shadow: 0px -2px #BD3E31;
+}
