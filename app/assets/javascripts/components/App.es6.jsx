@@ -5,7 +5,8 @@ class App extends React.Component {
     this.startGame = this.startGame.bind(this);
     this.state = {
       deck: [],
-      gameStart: false
+      gameStart: false,
+      firstGo: true
       // user: {
       //   loggedIn: false
       // }
@@ -24,6 +25,7 @@ class App extends React.Component {
     }).done(function(response) {
       this.setState({deck: response});
     }.bind(this));
+    this.setState({gameStart: this.props.gameStart});
   }
 
   onCardClick(clickedCard, newStatus) {
@@ -47,7 +49,7 @@ class App extends React.Component {
         this.setState({deck: newDeck});
       }
     } else {
-      this.setState({deck: newDeck});
+      this.setState({deck: newDeck, firstGo: false});
     }
 
   }
@@ -55,6 +57,7 @@ class App extends React.Component {
 
   startGame() {
     this.setState({gameStart: true});
+    this.props.startTimer();
   }
 
   render() {
@@ -64,8 +67,8 @@ class App extends React.Component {
         <div>
           <Nav />
 
-          <Game deck={this.state.deck} uponClick={this.onCardClick}/>
-          <Timer start={Date.now()}/>
+          <Game deck={this.state.deck} uponClick={this.onCardClick} firstGo={this.state.firstGo}/>
+
 
         </div>
       )
