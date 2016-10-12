@@ -6,6 +6,8 @@ class App extends React.Component {
     this.state = {
       deck: [],
       gameStart: false,
+      sets: 0,
+      invalidSets: 0,
       firstGo: true
       // user: {
       //   loggedIn: false
@@ -28,12 +30,15 @@ class App extends React.Component {
     this.setState({gameStart: this.props.gameStart});
   }
 
+
+
   onCardClick(clickedCard, newStatus) {
     var newDeck = this.state.deck.filter(card => card.id != clickedCard.props.data.id );
     var cardToUpdate = this.state.deck.find(card => card.id == clickedCard.props.data.id );
 
     cardToUpdate.status = newStatus;
     newDeck.push(cardToUpdate);
+
 
     var selectedCards = hasSelectedSet(newDeck);
     if (selectedCards) {
@@ -66,10 +71,7 @@ class App extends React.Component {
       return(
         <div>
           <Nav />
-
           <Game deck={this.state.deck} uponClick={this.onCardClick} firstGo={this.state.firstGo}/>
-
-
 
         </div>
       )

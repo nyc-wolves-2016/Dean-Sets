@@ -23,6 +23,7 @@ class Game extends React.Component {
 
   }
 
+
   render() {
     let { deck } = this.props;
 
@@ -86,6 +87,7 @@ class Game extends React.Component {
         </ul>
 
         <input className="noSets red-button" type="button" value="dey Aint No Sets" onClick={this.onButtonClick} />
+        <button type="button" className="noSets red-button" ><a href="/">Quit</a></button>
       </div>
 
     )
