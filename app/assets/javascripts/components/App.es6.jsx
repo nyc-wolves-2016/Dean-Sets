@@ -5,7 +5,8 @@ class App extends React.Component {
     this.startGame = this.startGame.bind(this);
     this.state = {
       deck: [],
-      gameStart: false
+      gameStart: false,
+      firstGo: true
       // user: {
       //   loggedIn: false
       // }
@@ -24,6 +25,7 @@ class App extends React.Component {
     }).done(function(response) {
       this.setState({deck: response});
     }.bind(this));
+    this.setState({gameStart: this.props.gameStart});
   }
 
   onCardClick(clickedCard, newStatus) {
@@ -37,21 +39,25 @@ class App extends React.Component {
     if (selectedCards) {
       if (validSet(selectedCards)) {
         var newestDeck = newDeck.filter(card => card.status != "selected" );
-        alert("Dawg, you so smart!");
+
         this.setState({deck: newestDeck});
+        alert("Dawg, you so smart!");
+
       } else {
         alert("That's not a valid set, dawg.");
         newDeck.forEach(function(card) { if (card.status=="selected") { card.status = "onBoard"; }});
         this.setState({deck: newDeck});
       }
     } else {
-      this.setState({deck: newDeck});
+      this.setState({deck: newDeck, firstGo: false});
     }
 
   }
 
+
   startGame() {
     this.setState({gameStart: true});
+    this.props.startTimer();
   }
 
   render() {
@@ -61,8 +67,9 @@ class App extends React.Component {
         <div>
           <Nav />
 
-          <Game deck={this.state.deck} uponClick={this.onCardClick}/>
-          <Timer start={Date.now()} />
+          <Game deck={this.state.deck} uponClick={this.onCardClick} firstGo={this.state.firstGo}/>
+
+
 
         </div>
       )
