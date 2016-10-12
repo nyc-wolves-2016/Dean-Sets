@@ -38,7 +38,8 @@ class App extends React.Component {
   render() {
     return(
       <div>
-      {/* <Nav userData={this.state.user} onLogin={this.ufkjf} /> */}
+      <Nav />
+      <Timer start={Date.now()} />
 
 
       <Game deck={this.state.deck} uponClick={this.onCardClick}/>
