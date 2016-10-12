@@ -62,7 +62,7 @@ class App extends React.Component {
           <Nav />
 
           <Game deck={this.state.deck} uponClick={this.onCardClick}/>
-          <Timer start={Date.now()}/>
+          <Timer start={Date.now()} />
 
         </div>
       )
