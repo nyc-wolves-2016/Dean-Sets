@@ -1,24 +1,6 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Dean Sets is a Rails 5/React app based on the card game, SET[SET](http://www.setgame.com/set).
 
-Things you may want to cover:
+From the official [SET](http://www.setgame.com/set) game website:
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...

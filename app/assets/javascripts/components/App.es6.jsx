@@ -72,6 +72,7 @@ class App extends React.Component {
           <Nav />
 
           <input type="button" value="Start Game" onClick={this.startGame} />
+          <Instructions />
 
         </div>
       )
