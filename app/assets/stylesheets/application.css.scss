@@ -29,9 +29,7 @@ body {
 }
 
 .start {
-  position: relative;
-  top: 50%;
-  transform: translateY(-50%);
+  margin-top: 200px;
   width: 100%;
   display: block;
   margin: auto;
@@ -40,12 +38,11 @@ body {
 
 .startButton
 {
-  /*position: relative;*/
   display: block;
-  margin: auto;
+  margin-top: 10%;
+  margin-right: auto;
+  margin-left: auto;
   padding: 10px 40px;
-  /*margin: 0px 10px 10px 0px;*/
-  /*float: left;*/
   border-radius: 10px;
   font-family: 'Pacifico', cursive;
   font-size: 25px;
