@@ -14,11 +14,46 @@
  *= require_self
  */
 
- // @import "bootstrap-sprockets";
- // @import "bootstrap";
- // @import "bootstrap/theme";
+
+body {
+  font-family: Tahoma, Geneva, sans-serif;
+}
 
 .instructions {
   width: 70%;
-  margin-left: 10px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 10%;
+  font-size: .7em;
+
 }
+
+.start {
+  margin-top: 200px;
+  width: 100%;
+  display: block;
+  margin: auto;
+}
+
+
+.startButton
+{
+  display: block;
+  margin-top: 10%;
+  margin-right: auto;
+  margin-left: auto;
+  padding: 10px 40px;
+  border-radius: 10px;
+  font-family: 'Pacifico', cursive;
+  font-size: 25px;
+  color: #FFF;
+  text-decoration: none;
+}
+
+.red-button
+{
+  background-color: #e60000;
+  border-bottom: 5px solid #BD3E31;
+  text-shadow: 0px -2px #BD3E31;
+}
+
