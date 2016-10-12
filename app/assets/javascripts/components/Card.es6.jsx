@@ -16,7 +16,8 @@ class Card extends React.Component {
   render(){
     let { color, shape, shading, number, status } = this.props.data;
 
-    var cardClasses = classNames( color, shape, shading);
+    var cardDisplay = classNames( color, shape, shading);
+    var cardClasses = classNames ("card", status);
     var rows = [];
     for (var i=0; i < number; i++) {
       rows.push(number);
@@ -24,10 +25,10 @@ class Card extends React.Component {
 
     return(
       <li onClick={this.changeStatus}>
-        <div className="card">
+        <div className={ cardClasses}>
           <div className="cardfront">
             {rows.map((card, i) =>
-              <div className= {cardClasses} key={i}></div>
+              <div className= {cardDisplay} key={i}></div>
             )}
           </div>
         </div>
