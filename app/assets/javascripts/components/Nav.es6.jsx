@@ -33,18 +33,20 @@ class Nav extends React.Component {
     if (this.state.user.loggedIn) {
       return (
         <nav>
-          <a href={'/users/' + this.state.user.id}>{this.state.user.username}</a><br></br>
-          <a href="/users/logout">logout</a><br></br>
-          <a href="/">home</a>
+          <ul className="loggedin-nav-ul">
+            <li className="loggedin-nav-li"><a href={'/users/' + this.state.user.id}>{this.state.user.username}</a></li>
+            <li className="loggedin-nav-li"><a href="/users/logout">logout</a></li>
+          </ul>
         </nav>
       )
     }
     else {
       return (
         <nav>
-          <NewUser registerComplete={this.updateNewUser}/><br></br><br></br>
-          <Login loginComplete={this.updateLogin}/><br></br><br></br>
-          <a href="/">home</a>
+          <ul className="loggedout-nav-ul">
+            <li className="loggedout-nav-li"><NewUser registerComplete={this.updateNewUser}/></li>
+            <li className="loggedout-nav-li"><Login loginComplete={this.updateLogin}/></li>
+          </ul>
         </nav>
       )
     }

@@ -5,8 +5,17 @@
 .board {
   margin: auto;
   width: 550px;
-  border: 1px solid red;
   padding: 10px;
+}
+
+.noSets {
+  display: block;
+  margin: auto;
+  padding: 10px 40px;
+  border-radius: 10px;
+  font-size: 20px;
+  color: #FFF;
+  text-decoration: none;
 }
 
 

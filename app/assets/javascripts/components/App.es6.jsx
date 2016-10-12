@@ -70,14 +70,16 @@ class App extends React.Component {
           <Game deck={this.state.deck} uponClick={this.onCardClick} firstGo={this.state.firstGo}/>
 
 
+
         </div>
       )
     } else {
       return(
         <div>
           <Nav />
-
-          <input type="button" value="Start Game" onClick={this.startGame} />
+          <div className="start">
+            <input className="startButton animate red-button" type="button" value="Start Game" onClick={this.startGame} />
+          </div>
           <Instructions />
 
         </div>

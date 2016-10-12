@@ -85,7 +85,7 @@ class Game extends React.Component {
           )}
         </ul>
 
-        <input type="button" value="deyAintNoSets" onClick={this.onButtonClick} />
+        <input className="noSets red-button" type="button" value="deyAintNoSets" onClick={this.onButtonClick} />
       </div>
 
     )
