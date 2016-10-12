@@ -245,7 +245,7 @@ function addThreeCards(deck) {
     }
   }
   else {
-    return false
+    return false;
   }
 }
 
@@ -272,7 +272,7 @@ function checkBoardAndAddCards(possibleCardCombos, deck) {
 }
 
 function gameOver(possibleCardCombos) {
-  if (setsOnBoard(possibleCardCombos) == false && deck.length === 0) {
+  if (setsOnBoard(possibleCardCombos) == false || possibleCardCombos == []) {
     return true;
   }
   else {

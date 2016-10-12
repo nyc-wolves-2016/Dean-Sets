@@ -30,9 +30,45 @@ class Game extends React.Component {
     var inDeckCards = deck.filter(card => card.status == "pending");
 
     if (onBoardCards.length == 0) {
-      addNineCards(inDeckCards);
+      var possibleGameOver = addNineCards(inDeckCards);
+      if (possibleGameOver == false) {
+        alert('Game over!');
+      }
     } else if (onBoardCards.length < 9) {
-      addThreeCards(inDeckCards);
+      debugger;
+      var possibleGameOver = addThreeCards(inDeckCards);
+      if (possibleGameOver == false ) {
+        var onBoardCards = deck.filter(card => card.status == "selected" || card.status == "onBoard");
+
+        $.ajax({
+          url: '/games/card_combos',
+          data: {cards: {cards_ary: onBoardCards}}
+        }).done(function(response) {
+          if (gameOver(response)){
+            alert('Game over!');
+          }
+        }.bind(this))
+      }
+    } else if (deck.length == 9) {
+      var onBoardCards = deck.filter(card => card.status == "selected" || card.status == "onBoard");
+
+      $.ajax({
+        url: '/games/card_combos',
+        data: {cards: {cards_ary: onBoardCards}}
+      }).done(function(response) {
+        if (gameOver(response)){
+          alert('Game over!');
+        }
+      }.bind(this))
+    } else if (onBoardCards.length == 12) {
+      $.ajax({
+        url: '/games/card_combos',
+        data: {cards: {cards_ary: onBoardCards}}
+      }).done(function(response) {
+        if (gameOver(response)){
+          alert('Game over!');
+        }
+      }.bind(this))
     }
 
     var cardsToDisplay = deck.filter(card => card.status == "selected" || card.status == "onBoard");

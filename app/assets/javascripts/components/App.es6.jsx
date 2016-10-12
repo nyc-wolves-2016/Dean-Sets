@@ -37,8 +37,10 @@ class App extends React.Component {
     if (selectedCards) {
       if (validSet(selectedCards)) {
         var newestDeck = newDeck.filter(card => card.status != "selected" );
-        alert("Dawg, you so smart!");
+
         this.setState({deck: newestDeck});
+        alert("Dawg, you so smart!");
+
       } else {
         alert("That's not a valid set, dawg.");
         newDeck.forEach(function(card) { if (card.status=="selected") { card.status = "onBoard"; }});
@@ -49,6 +51,7 @@ class App extends React.Component {
     }
 
   }
+
 
   startGame() {
     this.setState({gameStart: true});
