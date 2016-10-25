@@ -1,2 +1,79 @@
 <h1>Dean Sets</h1>
+<nav>
+
+  <% if logged_in? %>
+  <ul class="loggedin-nav-ul">
+         <li class="loggedin-nav-li">
+           <%= link_to "#{current_user.username}", current_user %>
+         </li>
+         <li class="loggedin-nav-li">
+           <a href="/users/logout">logout</a>
+         </li>
+  </ul>
+
+  <% else %>
+
+  <ul class="loggedout-nav-ul">
+
+    <li class="loggedout-nav-li">
+      <div class="register-div">
+           <h3 class="register-header">REGISTER</h3>
+           <form action="/users" method="post">
+             <ul class="register-ul">
+               <li class="register-li">
+                 <div class="form-group">
+                   <input type="text" placeholder="username" name="user[username]">
+                 </div>
+              </li>
+
+               <li class="register-li">
+                 <div class="form-group">
+                   <input type="text" name="user[email]"  placeholder="email">
+                 </div>
+              </li>
+
+               <li class="register-li">
+                 <div class="form-group">
+                   <input type="password" placeholder="password" name="user[password]">
+                 </div>
+              </li>
+
+               <li class="register-li register-button">
+                 <input type="submit" value="register">
+               </li>
+             </ul>
+           </form>
+         </div>
+    </li>
+
+    <li class="loggedout-nav-li">
+      <div class="login-div">
+        <h3 class="login-header">LOGIN</h3>
+        <form action="post" method="/users/login">
+           <ul class="login-ul">
+
+             <li class="login-li">
+               <div class="form-group">
+                 <input type="text" placeholder="email" name="user[email]">
+               </div>
+             </li>
+
+             <li class="login-li">
+               <div class="form-group">
+                 <input type="password" placeholder="password" name="user[password]">
+               </div>
+             </li>
+
+             <li class="login-li login-button">
+               <input type="submit" value="login">
+             </li>
+           </ul>
+         </form>
+      </div>
+    </li>
+
+  </ul>
+  <% end %>
+</nav>
+
 <%= react_component 'DadApp' %>

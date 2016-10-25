@@ -3,16 +3,22 @@ class App extends React.Component {
     super();
     this.onCardClick = this.onCardClick.bind(this);
     this.startGame = this.startGame.bind(this);
+    this.updateNewUser = this.updateNewUser.bind(this);
     this.state = {
       deck: [],
       gameStart: false,
       sets: 0,
       invalidSets: 0,
-      firstGo: true
-      // user: {
-      //   loggedIn: false
-      // }
+      firstGo: true,
+      user: {
+        loggedIn: false
+      }
     }
+  }
+
+  updateNewUser(response) {
+    response["loggedIn"] = true
+    this.setState({user: response})
   }
 
   onSetCreation(cards_ary) {
@@ -71,7 +77,7 @@ class App extends React.Component {
     if (this.state.gameStart) {
       return(
         <div>
-          <Nav />
+          {/* <Nav user={this.state.user} updateNewUser={this.updateNewUser}/> */}
           <div>
             <p>Valid Sets: {this.state.sets}</p>
             <p>Invalid Sets: {this.state.invalidSets}</p>
@@ -83,7 +89,7 @@ class App extends React.Component {
     } else {
       return(
         <div>
-          <Nav />
+          {/* <Nav user={this.state.user} updateNewUser={this.updateNewUser}/> */}
           <div className="start">
             <input className="startButton animate red-button" type="button" value="Start Game" onClick={this.startGame} />
           </div>
