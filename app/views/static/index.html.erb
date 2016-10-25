@@ -1,2 +1,29 @@
 <h1>Dean Sets</h1>
+<nav>
+  <% if logged_in? %>
+    <ul class="loggedin-nav-ul">
+       <li class="loggedin-nav-li">
+         <%= link_to "#{current_user.username}", current_user %>
+       </li>
+       <li class="loggedin-nav-li">
+         <a href="/users/logout">logout</a>
+       </li>
+    </ul>
+  <% else %>
+    <ul class="loggedout-nav-ul">
+      <%= render 'users/new'%>
+      <%= render 'users/login'%>
+    </ul>
+  <% end %>
+</nav>
+<% if @errors %>
+   <div id="error_explanation">
+     <ul>
+       <% @errors.each do |msg| %>
+         <li><%= msg %></li>
+       <% end %>
+     </ul>
+   </div>
+ <% end %>
+
 <%= react_component 'DadApp' %>
