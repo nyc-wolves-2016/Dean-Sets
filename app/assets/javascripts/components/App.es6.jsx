@@ -44,14 +44,15 @@ class App extends React.Component {
     if (selectedCards) {
       if (validSet(selectedCards)) {
         var newestDeck = newDeck.filter(card => card.status != "selected" );
-
-        this.setState({deck: newestDeck});
-        alert("Dawg, you so smart!");
+        var newSetCount = this.state.sets + 1
+        this.setState({deck: newestDeck, sets: newSetCount});
+        alert("Correct!!");
 
       } else {
-        alert("That's not a valid set, dawg.");
+        alert("Sorry! Keep trying.");
         newDeck.forEach(function(card) { if (card.status=="selected") { card.status = "onBoard"; }});
-        this.setState({deck: newDeck});
+        var newInvalidCount = this.state.invalidSets + 1
+        this.setState({deck: newDeck, invalidSets: newInvalidCount});
       }
     } else {
       this.setState({deck: newDeck, firstGo: false});
@@ -71,6 +72,10 @@ class App extends React.Component {
       return(
         <div>
           <Nav />
+          <div>
+            <p>Valid Sets: {this.state.sets}</p>
+            <p>Invalid Sets: {this.state.invalidSets}</p>
+          </div>
           <Game deck={this.state.deck} uponClick={this.onCardClick} firstGo={this.state.firstGo}/>
 
         </div>
