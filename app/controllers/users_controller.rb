@@ -6,6 +6,7 @@ class UsersController < ApplicationController
     @user = User.find_by(email: user_params[:email])
     if @user && @user.authenticate(user_params[:password])
       session[:user_id] = @user.id
+      redirect_to root_path
     else
       @errors = ["Invalid email or password"]
       render 'static/index'
@@ -25,6 +26,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       session[:user_id] = @user.id
+      redirect_to root_path
     else
       @errors = @user.errors.full_messages
       render 'static/index'
