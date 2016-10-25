@@ -1,9 +1,0 @@
-$.ajax({
-    url: "/users/login",
-    method: "GET"
-  })
-  .done(function(response) {
-    debugger;
-    response["loggedIn"] = true
-    this.setState({user: response})
-  }.bind(this))

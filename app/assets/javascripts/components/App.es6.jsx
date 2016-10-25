@@ -77,7 +77,6 @@ class App extends React.Component {
     if (this.state.gameStart) {
       return(
         <div>
-          {/* <Nav user={this.state.user} updateNewUser={this.updateNewUser}/> */}
           <div>
             <p>Valid Sets: {this.state.sets}</p>
             <p>Invalid Sets: {this.state.invalidSets}</p>
@@ -89,7 +88,6 @@ class App extends React.Component {
     } else {
       return(
         <div>
-          {/* <Nav user={this.state.user} updateNewUser={this.updateNewUser}/> */}
           <div className="start">
             <input className="startButton animate red-button" type="button" value="Start Game" onClick={this.startGame} />
           </div>
