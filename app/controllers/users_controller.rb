@@ -8,6 +8,7 @@ class UsersController < ApplicationController
       session[:user_id] = @user.id
     else
       @errors = ["Invalid email or password"]
+      render 'static/index'
     end
   end
 
@@ -26,6 +27,7 @@ class UsersController < ApplicationController
       session[:user_id] = @user.id
     else
       @errors = @user.errors.full_messages
+      render 'static/index'
     end
   end
 
