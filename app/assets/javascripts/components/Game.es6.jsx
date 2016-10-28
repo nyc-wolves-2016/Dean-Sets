@@ -53,7 +53,7 @@ class Game extends React.Component {
             }
           }.bind(this))
         }
-      } else if (deck.length == 9) {
+      } else if (deck.length == 9 && deck.length==9) {
         var onBoardCards = deck.filter(card => card.status == "selected" || card.status == "onBoard");
 
         $.ajax({
@@ -64,7 +64,7 @@ class Game extends React.Component {
             alert('Game over!');
           }
         }.bind(this))
-      } else if (onBoardCards.length == 12) {
+      } else if (onBoardCards.length == 12 && deck.length==12) {
         $.ajax({
           url: '/games/card_combos',
           data: {cards: {cards_ary: onBoardCards}}
