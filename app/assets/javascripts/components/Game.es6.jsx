@@ -24,6 +24,8 @@ class Game extends React.Component {
   }
 
 
+
+
   render() {
     let { deck } = this.props;
 
@@ -36,6 +38,7 @@ class Game extends React.Component {
         var possibleGameOver = addNineCards(inDeckCards);
         if (possibleGameOver == false) {
           if (!this.props.firstGo) {
+            this.props.gameSaver();
             alert('Game over!');
           }
         }
@@ -49,6 +52,7 @@ class Game extends React.Component {
             data: {cards: {cards_ary: onBoardCards}}
           }).done(function(response) {
             if (gameOver(response)){
+              this.props.gameSaver();
               alert('Game over!');
             }
           }.bind(this))
@@ -61,6 +65,7 @@ class Game extends React.Component {
           data: {cards: {cards_ary: onBoardCards}}
         }).done(function(response) {
           if (gameOver(response)){
+            this.props.gameSaver();
             alert('Game over!');
           }
         }.bind(this))
@@ -70,6 +75,7 @@ class Game extends React.Component {
           data: {cards: {cards_ary: onBoardCards}}
         }).done(function(response) {
           if (gameOver(response)){
+            this.props.gameSaver();
             alert('Game over!');
           }
         }.bind(this))
