@@ -1,8 +1,7 @@
 class GamesController < ApplicationController
 
   def create
-    @game = Game.new(user_id: current_user.id)
-
+    @game = Game.new(user_id: current_user.id, sets: params[:sets], invalid_sets: params[:invalid_sets])
     if @game.save
       render json: @game
     end

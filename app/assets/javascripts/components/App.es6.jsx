@@ -3,16 +3,35 @@ class App extends React.Component {
     super();
     this.onCardClick = this.onCardClick.bind(this);
     this.startGame = this.startGame.bind(this);
+    this.updateNewUser = this.updateNewUser.bind(this);
+    this.saveGame = this.saveGame.bind(this);
     this.state = {
       deck: [],
       gameStart: false,
       sets: 0,
       invalidSets: 0,
-      firstGo: true
-      // user: {
-      //   loggedIn: false
-      // }
+      firstGo: true,
+      user: {
+        loggedIn: false
+      }
     }
+  }
+
+  saveGame() {
+    var invalid = this.state.invalidSets;
+    debugger;
+    $.ajax({
+      url: '/games',
+      method: "post",
+      data: {sets: this.state.sets, invalid_sets: this.state.invalidSets}
+    }).done(function(response) {
+
+    }.bind(this));
+  }
+
+  updateNewUser(response) {
+    response["loggedIn"] = true
+    this.setState({user: response})
   }
 
   onSetCreation(cards_ary) {
@@ -71,19 +90,17 @@ class App extends React.Component {
     if (this.state.gameStart) {
       return(
         <div>
-          <Nav />
           <div>
             <p>Valid Sets: {this.state.sets}</p>
             <p>Invalid Sets: {this.state.invalidSets}</p>
           </div>
-          <Game deck={this.state.deck} uponClick={this.onCardClick} firstGo={this.state.firstGo}/>
+          <Game gameSaver={this.saveGame} deck={this.state.deck} uponClick={this.onCardClick} firstGo={this.state.firstGo}/>
 
         </div>
       )
     } else {
       return(
         <div>
-          <Nav />
           <div className="start">
             <input className="startButton animate red-button" type="button" value="Start Game" onClick={this.startGame} />
           </div>

@@ -24,6 +24,8 @@ class Game extends React.Component {
   }
 
 
+
+
   render() {
     let { deck } = this.props;
 
@@ -36,6 +38,7 @@ class Game extends React.Component {
         var possibleGameOver = addNineCards(inDeckCards);
         if (possibleGameOver == false) {
           if (!this.props.firstGo) {
+            this.props.gameSaver();
             alert('Game over!');
           }
         }
@@ -49,11 +52,12 @@ class Game extends React.Component {
             data: {cards: {cards_ary: onBoardCards}}
           }).done(function(response) {
             if (gameOver(response)){
+              this.props.gameSaver();
               alert('Game over!');
             }
           }.bind(this))
         }
-      } else if (deck.length == 9) {
+      } else if (deck.length == 9 && deck.length==9) {
         var onBoardCards = deck.filter(card => card.status == "selected" || card.status == "onBoard");
 
         $.ajax({
@@ -61,15 +65,17 @@ class Game extends React.Component {
           data: {cards: {cards_ary: onBoardCards}}
         }).done(function(response) {
           if (gameOver(response)){
+            this.props.gameSaver();
             alert('Game over!');
           }
         }.bind(this))
-      } else if (onBoardCards.length == 12) {
+      } else if (onBoardCards.length == 12 && deck.length==12) {
         $.ajax({
           url: '/games/card_combos',
           data: {cards: {cards_ary: onBoardCards}}
         }).done(function(response) {
           if (gameOver(response)){
+            this.props.gameSaver();
             alert('Game over!');
           }
         }.bind(this))
